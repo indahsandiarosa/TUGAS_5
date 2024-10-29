@@ -1,0 +1,156 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Halaman Admin</title>  
+    <!-- CSS File -->  
+    <link rel="stylesheet" href="style.css">  
+    <!-- Boxicons CSS -->  
+    <link  
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"  
+      rel="stylesheet"  
+    />  
+    
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo_details">
+      <div class="logo_name">Logo</div>
+      <i class="bx bx-menu" id="btn"></i>
+      <i class="bx bx-moon night-mode-icon" id="night-mode-btn"></i>
+  </div>
+    <ul class="nav-list">
+      <li>
+        <a href="#">
+          <i class="bx bx-home-alt icon"></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-bar-chart-alt-2 icon"></i>
+          <span class="link_name">Revenue</span>
+        </a>
+        <span class="tooltip">Revenue</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-pie-chart-alt-2 icon"></i>
+          <span class="link_name">Analytics</span>
+        </a>
+        <span class="tooltip">Analytics</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-heart icon"></i>
+          <span class="link_name">Likes</span>
+        </a>
+        <span class="tooltip">Likes</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-folder-open icon"></i> 
+          <span class="link_name">Files</span>
+        </a>
+        <span class="tooltip">Files</span>
+      </li>
+      <li class="bottom-content-item">
+        <a href="#">
+            <i class="bx bx-cog icon"></i>
+            <span class="link_name">Settings</span>
+        </a>
+        <span class="tooltip">Settings</span>
+    </li>
+    <li class="bottom-content-item">
+        <a href="#">
+            <i class="bx bx-log-out icon"></i>
+            <span class="link_name">Logout</span>
+        </a>
+        <span class="tooltip">Logout</span>
+    </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <header class="header">  
+      <div class="search-container">  
+          <input type="text" placeholder="Search here..." class="search-input">  
+          <i class="bx bx-search icon"></i>  
+      </div>  
+      <div class="header-icons"> 
+              <i class="bx bx-bell icon"></i>  
+              <i class="bx bx-message-rounded icon"></i>  
+          <div class="profile-icon">  
+              <img src="foto2.jpeg" alt="Profile" />  
+          </div>  
+      </div>  
+    </header>
+    <div class="content">
+      <div class="card-container">  
+          <div class="card blue fade-in-up">  <!-- Kelas fade-in-up ditambahkan di sini -->
+              <h2>Total Income</h2>  
+              <p class="amount">$ 579,000</p>  
+              <p class="saved">Saved 25%</p>  
+          </div>  
+          <div class="card light-blue fade-in-up">  <!-- Kelas fade-in-up ditambahkan di sini -->
+              <h2>Total Expenses</h2>  
+              <p class="amount">$ 79,000</p>  
+              <p class="saved">Saved 25%</p>  
+          </div>  
+          <div class="card purple fade-in-up">  <!-- Kelas fade-in-up ditambahkan di sini -->
+              <h2>Cash on Hand</h2>  
+              <p class="amount">$ 92,000</p>  
+              <p class="saved">Saved 25%</p>  
+          </div>  
+          <div class="card green fade-in-up">  <!-- Kelas fade-in-up ditambahkan di sini -->
+              <h2>Net Profit Margin</h2>  
+              <p class="amount">$ 179,000</p>  
+              <p class="saved">Saved 65%</p>  
+          </div>  
+      </div>
+      <div class="charts-container fade-in-up">
+        <div class="chart">  
+          <h2>AP and AR Balance</h2>  
+          <p>Avg. $5,309</p>  
+          <div class="chart-controls">  
+              <select>  
+                  <option>Monthly</option>  
+                  <option>Yearly</option>  
+              </select>  
+              <select>  
+                  <option>Last Year</option>  
+                  <option>This Year</option>  
+              </select>  
+          </div>  
+          <div class="chart-placeholder">
+              <canvas id="myBarChart"></canvas> <!-- script.js -->
+          </div>  
+      </div>  
+      <div class="budget-container">  
+          <div class="budget fade-in-up">  <!-- Kelas fade-in-up ditambahkan di sini -->
+              <h2>% of Income Budget</h2>  
+              <div class="pie-chart">
+                  <canvas id="myPieChart1"></canvas> <!-- script.js -->
+              </div>
+              <p>Balance: $18,570</p>  
+              <a href="#">View Full Report</a>  
+          </div>  
+          <div class="budget fade-in-up">  <!-- Kelas fade-in-up ditambahkan di sini -->
+              <h2>% of Expenses Budget</h2>  
+              <div class="pie-chart">
+                  <canvas id="myPieChart2"></canvas> <!-- script.js -->
+              </div>
+              <p>Balance: $18,570</p>  
+              <a href="#">View Full Report</a>  
+          </div>  
+      </div>
+      </div>
+      
+    </div>
+  </section>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

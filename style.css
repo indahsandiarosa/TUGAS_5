@@ -1,0 +1,787 @@
+/* Google Fonts - Poppins */  
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");  
+
+* {  
+  margin: 0;  
+  padding: 0;  
+  box-sizing: border-box;  
+  font-family: "Poppins", sans-serif;  
+}  
+
+body{
+  min-height: 100vh;
+}
+
+.sidebar{
+  min-height: 100vh;
+  width: 78px;
+  padding: 6px 14px;
+  z-index: 99;
+  background-color: #ffffff;
+  transition: all .5s ease;
+  position: fixed;
+  top:0;
+  left: 0;
+}
+
+.sidebar.open{
+  width: 200px;
+}
+
+.sidebar .logo_details{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sidebar .logo_details .icon{
+  opacity: 0;
+  transition: all 0.5s ease ;
+}
+
+
+
+.sidebar .logo_details .logo_name{
+  font-size: 22px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+.sidebar.open .logo_details .icon,
+.sidebar.open .logo_details .logo_name{
+  opacity: 1;
+}
+
+.sidebar .logo_details #btn{
+  position: absolute;
+  top:50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+.sidebar.open .logo_details #btn{
+  text-align: right;
+}
+
+.sidebar i{
+  height: 60px;
+  line-height: 60px;
+  min-width: 50px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.sidebar .nav-list{
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar li{
+  position: relative;
+  margin:8px 0;
+  list-style: none;
+}
+
+.sidebar li .tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 15px);
+  transform: translateY(-50%);
+  background-color: #394fde;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar li:hover .tooltip{
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip{
+  display: none;
+}
+
+.sidebar:not(.open) li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar.open li .tooltip {
+  display: none;
+}
+
+.sidebar li a{
+  color: #848383;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-decoration: none;
+  background-color: none;
+  position: relative;
+  transition: all .5s ease;
+  z-index: 12;
+}
+
+.sidebar li a::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  background-color: #394fde;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: left;
+  z-index: -2;
+}
+
+.sidebar li a:hover {
+  color: white;
+  background: #394fde;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.sidebar li a:hover i {
+  color: white; /* Mengubah warna icon menjadi putih saat hover */
+}
+
+.sidebar li a:hover::after{
+  transform: scaleX(1);
+}
+
+.sidebar li a .link_name{
+  color: #848383;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.sidebar li .tooltip:before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 6px 6px 0;
+  border-style: solid;
+  border-color: transparent #394fde transparent transparent;
+}
+
+.sidebar li a:hover .link_name,
+.sidebar li a:hover i{
+  transition: all 0.5s ease;
+}
+
+.sidebar.open li a .link_name{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar li a:hover .link_name {
+  color: white; /* Mengubah warna text menjadi putih saat hover */
+}
+
+.sidebar li i{
+  height: 35px;
+  line-height: 35px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.sidebar li.bottom-content-item {
+  bottom: -150px;
+}
+
+/* Hapus atau modifikasi style bottom-content yang lama */
+.sidebar li.bottom-content {
+  display: flex;
+  height: auto;
+  width: auto;
+  left: 0;
+  bottom: -150px;
+  padding: auto;
+  overflow: hidden;
+  transition: all .5s ease;
+}
+
+/* Tambahkan style baru untuk bottom-content-item */
+.sidebar li.bottom-content-item {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+  width: 100%;
+}
+
+.sidebar li.bottom-content-item .tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 15px);
+  transform: translateY(-50%);
+  background-color: #394fde;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar li.bottom-content-item:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar:not(.open) li.bottom-content-item:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar.open li.bottom-content-item .tooltip {
+  display: none;
+}
+
+.sidebar li.bottom-content-item .tooltip:before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 6px 6px 0;
+  border-style: solid;
+  border-color: transparent #394fde transparent transparent;
+}
+
+/* Style untuk link dan icon dalam bottom-content-item */
+.sidebar li.bottom-content-item a {
+  color: #848383;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-decoration: none;
+  background: none;
+  position: relative;
+  transition: all .5s ease;
+  z-index: 12;
+}
+
+.sidebar li.bottom-content-item a:hover {
+  color: white;
+  background: #394fde;
+  border-radius: 5px;
+}
+
+.sidebar li.bottom-content-item a:hover i {
+  color: white;
+}
+
+.sidebar li.bottom-content-item a .link_name {
+  color: #848383;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.sidebar.open li.bottom-content-item a .link_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.home-section{
+  position: relative;
+  min-height: 100vh;
+  top:0;
+  left:78px;
+  width: calc(100% - 78px);
+  transition: all .5s ease;
+  z-index: 2;
+  background-color: #f1f0f0;
+}
+
+.home-section .header {  
+  display: flex; 
+  justify-content: space-between;
+  padding: 20px;  
+  background: #f1f1f1;  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0);    
+}  
+
+.search-container {  
+  display: flex;  
+  align-items: center;  
+  background: #ffffff;  
+  border-radius: 10px;  
+  padding: 5px;  
+  width: 1500px;
+}  
+
+.search-input {  
+  border: none;  
+  background: transparent;  
+  outline: none;  
+  padding: 8px ;  
+  border-radius: 10px; 
+  flex-grow: 1; /* Membuat input mengisi ruang yang tersedia */ 
+}  
+
+.header-icons {  
+  display: flex;  
+  align-items: center;  
+}  
+
+.header-icons .icon {  
+  font-size: 24px;  
+  margin-left: 20px;  
+  cursor: pointer;  
+  color: #707070;
+}  
+
+.profile-icon {  
+  width: 40px;  
+  height: 40px;  
+  border-radius: 50%;  
+  overflow: hidden;  
+  margin-left: 20px;  
+}  
+
+.profile-icon img {  
+  width: 100%;  
+  height: auto;  
+}
+
+.home-section .content {
+  margin-left: 210px; /* Memberikan ruang untuk sidebar */  
+  padding: 20px;  
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px;
+  margin-top: 0px;
+  margin: 0px;
+  perspective: 1500px;
+} 
+
+.card {
+  width: calc(50% - 10px);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center;
+  filter: blur(0);
+  cursor: pointer;
+  position: relative; /* Tambahkan ini */
+  opacity: 1; /* Tambahkan ini */
+  visibility: visible; /* Tambahkan ini */
+}  
+
+.blue {  
+  background-color: #4A90E2; /* Warna biru */  
+}  
+
+.light-blue {  
+  background-color: #A4D8E1; /* Warna biru muda */  
+}  
+
+.purple {  
+  background-color: #9B59B6; /* Warna ungu */  
+}  
+
+.green {  
+  background-color: #1ABC9C; /* Warna hijau */  
+}  
+
+.amount {  
+  font-size: 24px;  
+  font-weight: bold;  
+}  
+
+.saved {  
+  font-size: 14px;  
+  margin-top: 10px;  
+}
+
+.charts-container {
+  display: flex;
+  position: relative;
+  margin-top: 10px;
+  perspective: 1500px;
+  transition: all 0.3s ease;
+}
+
+.chart {
+  flex: 1;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #48eef1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center;
+  cursor: pointer;
+  position: relative;
+} 
+
+.chart-controls {  
+  display: flex;  
+  justify-content: space-between;  
+  margin-bottom: 20px;  
+}  
+
+.chart-placeholder {  
+  height: 200px; /* Tinggi untuk placeholder grafik */  
+  background-color: #e0e0e0;  
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: rgba(240, 240, 240, 0.9);
+}  
+
+.budget-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  perspective: 1000px;
+}
+
+.budget {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center;
+  cursor: pointer;
+  position: relative;
+}
+ 
+
+.progress-circle {  
+  width: 100px;  
+  height: 100px;  
+  border-radius: 50%;  
+  border: 10px solid #e0e0e0;  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  position: relative;  
+  margin: 0 auto 10px;  
+}  
+
+.progress-circle span {  
+  position: absolute;  
+  font-size: 24px;  
+  font-weight: bold;  
+}
+
+.chart-placeholder {
+  width: 100%;
+  height: 400px; 
+  background-color: rgba(240, 240, 240, 0.9); 
+  border-radius: 8px; 
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.pie-chart {
+  width: 300px;
+  height: 300px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.pie-chart .label {  
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  font-size: 16px; 
+  font-weight: bold; 
+  color: #333; 
+}
+
+@media (max-width: 768px) {  
+  .pie-chart {  
+      width: 200px;  
+      height: 200px;  
+  }  
+}
+
+
+
+.sidebar.open ~ .home-section{
+  left:200px;
+  width: calc(100% - 200px);
+}
+
+/* Tambahkan di bagian akhir file CSS */
+
+/* Style untuk elemen yang akan dianimasikan */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+}
+
+/* Animasi fade-in-up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Class yang akan ditambahkan ketika elemen visible */
+.fade-in-up.active {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Tambahkan CSS untuk mengatur tampilan icon night mode */
+.night-mode-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 40px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.open .night-mode-icon {
+    opacity: 1;
+}
+
+.night-mode .night-mode-icon {
+    content: "\ea1f"; /* Ikon bulan */
+}
+
+/* Ubah warna background utama saat night mode diaktifkan */
+body.night-mode {
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.5s ease;
+}
+
+.night-mode .sidebar,
+.night-mode .header,
+.night-mode .content{
+    background-color: #444;
+    color: #fff;
+    transition: background-color 0.5s ease;
+}
+
+.card.active:hover {
+  transform: scale(1.15) !important; /* Tambahkan !important */
+  z-index: 2;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  visibility: visible;
+  animation: float 3s infinite ease-in-out;
+}
+
+.card-container:hover .card.active:not(:hover) {
+  filter: blur(3px);
+  transform: scale(1) !important; /* Tambahkan !important */
+  opacity: 0.7;
+}
+
+.card:hover h2 {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+.card:hover .amount {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .saved {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+@keyframes float {
+  0% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1.15) translateY(-10px);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.chart:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.chart:hover .chart-placeholder {
+  transform: scale(1.02);
+}
+
+.chart:hover h2 {
+  transform: scale(1.05);
+  color: #333;
+}
+
+.budget:hover {
+  transform: scale(1.08) translateZ(20px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  background-color: #ffffff;
+}
+
+/* Efek blur untuk budget item lain saat hover */
+.budget-container:hover .budget:not(:hover) {
+  filter: blur(2px);
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+/* Animasi untuk elemen dalam budget saat hover */
+.budget:hover h2 {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  color: #394fde;
+}
+
+.budget:hover .pie-chart {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.budget:hover a {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  color: #394fde;
+}
+
+/* Animasi float untuk budget items */
+@keyframes budgetFloat {
+  0% {
+    transform: scale(1.08) translateZ(20px);
+  }
+  50% {
+    transform: scale(1.08) translateZ(30px) translateY(-5px);
+  }
+  100% {
+    transform: scale(1.08) translateZ(20px);
+  }
+}
+
+.budget:hover {
+  animation: budgetFloat 3s infinite ease-in-out;
+}
+
+.chart-controls select {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.chart-controls select:hover {
+  border-color: #394fde;
+  background-color: #f8f9fa;
+  transform: scale(1.05);
+}
+
+.chart:hover .chart-placeholder {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.pie-chart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .charts-container {
+    flex-direction: column;
+  }
+
+  .chart {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .budget-container {
+    margin-top: 0;
+  }
+
+  .pie-chart {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Efek transisi untuk link dalam budget */
+.budget a {
+  display: inline-block;
+  padding: 8px 15px;
+  margin-top: 10px;
+  color: #394fde;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.budget a:hover {
+  background-color: #394fde;
+  color: white;
+  transform: scale(1.1);
+}
